@@ -23,12 +23,13 @@
 use <threads.scad>
 
 //Select  model
-Model = 1;   //  1 = box, 2= Filtr holder 
-
+Model = 1;   //  1 = box, 2 = Filtr holder 
 BoxCount = 8;  // Box count
 
 
-// Options for filtr holeder 
+
+// Options for filtr holder 
+
 //label="H-Alpha";
 //label="H-Beta";
 //label="SII";
@@ -48,12 +49,11 @@ label="UV/IR-cut";
 //label="FLD";
 //label="CPL";
 
-tredad_dia = 48;        tredad_pitch=0.75;   // For 2"      M48   x 0.75    
-//tredad_dia = 28.5;    tredad_pitch=0.6;    // For 1.25"   M28.5 x 0.6
-//tredad_dia = 49;  tredad_pitch=0.75; // 49 - Foto M49
+tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.7;  // For 2"      M48   x 0.75    
+//tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.7;  // For 1.25"   M28.5 x 0.6
+//tredad_dia = 49;   tredad_pitch=0.75; thread_fix = 0.6;  // 49 - Foto M49
 
-thread_fix = 0.7;  // thread diametr fix  0.0 - 0.8 in your printer
-
+ 
 
 
 if (Model == 1) {
