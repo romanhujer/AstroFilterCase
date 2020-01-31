@@ -23,7 +23,7 @@
 use <threads.scad>
 
 //Select  model
-Model = 1;   //  1 = box, 2 = Filtr holder 
+Model = 2;   //  1 = box, 2 = Filtr holder 
 BoxCount = 8;  // Box count
 
 
@@ -34,7 +34,7 @@ BoxCount = 8;  // Box count
 //label="H-Beta";
 //label="SII";
 //label="OIII";
-//label="UHC";
+label="UHC";
 //label="CLS";
 //label="R";
 //label="G";
@@ -42,15 +42,15 @@ BoxCount = 8;  // Box count
 //label="L-Pro";
 //label="L-eNhance";
 //label="Skyglow";
-label="UV/IR-cut";
+//label="UV/IR-cut";
 //label="Moon";
 //label="Ca";
 //label="Venus";
 //label="FLD";
 //label="CPL";
 
-tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.7;  // For 2"      M48   x 0.75    
-//tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.7;  // For 1.25"   M28.5 x 0.6
+tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.6;  // For 2"      M48   x 0.75    
+//tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.6;  // For 1.25"   M28.5 x 0.6
 //tredad_dia = 49;   tredad_pitch=0.75; thread_fix = 0.6;  // 49 - Foto M49
 
  
