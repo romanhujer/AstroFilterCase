@@ -24,7 +24,7 @@ use <threads.scad>
 
 //Select  model
 Model = 2;   //  1 = box, 2 = Filtr holder 
-BoxCount = 8;  // Box count
+BoxCount = 6;  // Box count
 
 
 
@@ -34,7 +34,7 @@ BoxCount = 8;  // Box count
 //label="H-Beta";
 //label="SII";
 //label="OIII";
-label="UHC";
+//label="UHC";
 //label="CLS";
 //label="R";
 //label="G";
@@ -48,10 +48,18 @@ label="UHC";
 //label="Venus";
 //label="FLD";
 //label="CPL";
+//label="Yellow";
+//label="Orange";
+//label="Moon 1.25";
+//label="UV/IR 1.25";
+//label="CLS 1.25";
+//label="UHC 1.25";
+label="Skyglow           1.25";
 
-tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.6;  // For 2"      M48   x 0.75    
-//tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.6;  // For 1.25"   M28.5 x 0.6
-//tredad_dia = 49;   tredad_pitch=0.75; thread_fix = 0.6;  // 49 - Foto M49
+
+//tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.7;  // For 2"      M48   x 0.75    
+tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.7;  // For 1.25"   M28.5 x 0.6
+//tredad_dia = 49;   tredad_pitch=0.75; thread_fix = 0.7;  // 49 - Foto M49
 
  
 
@@ -59,6 +67,7 @@ tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.6;  // For 2"      M48   
 if (Model == 1) {
 
 for (i=[0:1:BoxCount-1]) translate ([0,0,i*15-i])
+
    
     difference()
     {
