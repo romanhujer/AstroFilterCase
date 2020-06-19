@@ -23,7 +23,7 @@
 use <threads.scad>
 
 //Select  model
-Model = 2;   //  1 = box, 2 = Filtr holder 
+Model = 3;   //  1 = box, 2 = Filtr holder; 3= Filtr changer;
 BoxCount = 6;  // Box count
 
 
@@ -54,11 +54,12 @@ BoxCount = 6;  // Box count
 //label="UV/IR 1.25";
 //label="CLS 1.25";
 //label="UHC 1.25";
-label="Skyglow           1.25";
+//label="Skyglow           1.25";
+label=" ";
 
 
-//tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.7;  // For 2"      M48   x 0.75    
-tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.7;  // For 1.25"   M28.5 x 0.6
+tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.4;  // For 2"      M48   x 0.75    
+//tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.7;  // For 1.25"   M28.5 x 0.6
 //tredad_dia = 49;   tredad_pitch=0.75; thread_fix = 0.7;  // 49 - Foto M49
 
  
@@ -112,4 +113,20 @@ difference() {
    
 
 
+}else if (Model == 3) {
+    difference() {  
+    difference()
+    {
+      translate ([0,-1.5,-4]) cube([66,61,25],center=true);
+ 
+     {
+       translate ([0, 0,-11/2+1.4]) cube([53.2,58.5,11.5],center=true); // Big Hole
+       cube([56.8,58.5,3.2],center=true);      //Small Hole  
+       translate([29.5,29.1,-6.5])rotate([90,0,0]) cylinder (h = 1.5, r=2.7,  $fn=100 );  //Hole for Magnet
+       translate([-29.5,29.1,-6.5])rotate([90,0,0]) cylinder (h = 1.5, r=2.7,  $fn=100 ); //Hole for Magnet
+     }    
+  } 
+     translate ([0,0,-17])  metric_thread (diameter=42 + 0.2,  pitch=0.75, length=27, internal=true );  //thread
 }
+    
+}    

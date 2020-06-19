@@ -28,7 +28,7 @@ use <threads.scad>
 // 4 M42 x 0.75  Cap
 
 
-Model = 2;
+Model = 8;
 
 if (Model == 1) {
     
@@ -66,5 +66,68 @@ else if (Model == 4) {
         translate ([0,0,2])  metric_thread (diameter=42.8, pitch=0.75, length=10, internal=true );
          
     } 
+}    
+else if (Model == 5) {
+     
+    tredad_dia = 29.5; tredad_pitch=0.6;  thread_fix = 0.7;  // For 1.25"   M28.5 x 0.6
+    difference() {
+    union(){
+    metric_thread (diameter=tredad_dia, pitch=tredad_pitch, length=5, internal=false );
+    translate ([0,0,5])  metric_thread (diameter=42.3, pitch=0.75, length=5, internal=false );
+    translate ([0,0,4.5]) cylinder (h = 1, r=22,  $fn=100 );
+    }
+    union(){
+    cylinder (h = 10, r=13,  $fn=100 );
+    translate ([0,0,5.5]) cylinder (h = 10, r=16.5,  $fn=100 );  
+  }
+}
+    
+}    
+
+else if (Model == 6) {
+     
+    tredad_dia = 29.8; tredad_pitch=0.6;  thread_fix = 0.7;  // For 1.25"   M28.5 x 0.6
+    difference() {
+    union(){
+    metric_thread (diameter=tredad_dia, pitch=tredad_pitch, length=5, internal=false );
+    translate ([0,0,5])  metric_thread (diameter=28.7, pitch=0.6, length=4, internal=false );
+    translate ([0,0,5]) cylinder (h = 0.3, r=15,  $fn=100 );
+    }
+    union(){
+    cylinder (h = 10, r=11,  $fn=100 );
+   }
+}
+    
+}    
+
+else if (Model == 7) {
+     
+    tredad_dia = 51.4; tredad_pitch=0.75;  thread_fix = 0.7;  // For 1.25"   M28.5 x 0.6
+    difference() {
+    union(){
+    metric_thread (diameter=tredad_dia, pitch=tredad_pitch, length=5, internal=false );
+    translate ([0,0,5])  metric_thread (diameter=28.7, pitch=0.6, length=4, internal=false );
+    translate ([0,0,5]) cylinder (h = 0.8, r=26.5,  $fn=100 );
+    }
+    union(){
+    cylinder (h = 10, r=11,  $fn=100 );
+   }
+}
+}
+else if (Model == 8) {
+     
+    tredad_dia = 50.7; tredad_pitch=0.75;  
+    difference() {
+    union(){
+    metric_thread (diameter=tredad_dia, pitch=tredad_pitch, length=5, internal=false );
+    translate ([0,0,24])  metric_thread (diameter=41.7, pitch=0.75, length=4, internal=false );
+    translate ([0,0,5]) cylinder (h = 20, r=26.5,  $fn=100 );
+    translate ([0,0,-1]) cylinder (h = 2, r=49/2,  $fn=100 );    
+    translate ([0,0,28]) cylinder (h = 1, r=20,  $fn=100 );            
+    }
+    union(){
+    translate ([0,0,-1]) cylinder (h = 30, r=17,  $fn=100 );
+   }
+}
     
 }    
