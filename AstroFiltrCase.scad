@@ -23,7 +23,7 @@
 use <threads.scad>
 
 //Select  model
-Model = 3;   //  1 = box, 2 = Filtr holder; 3= Filtr changer;
+Model = 7;   //  1 = box, 2 = Filtr holder; 3= Filtr changer;
 BoxCount = 6;  // Box count
 
 
@@ -58,8 +58,8 @@ BoxCount = 6;  // Box count
 label=" ";
 
 
-tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.4;  // For 2"      M48   x 0.75    
-//tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.7;  // For 1.25"   M28.5 x 0.6
+//tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.4;  // For 2"      M48   x 0.75    
+tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.7;  // For 1.25"   M28.5 x 0.6
 //tredad_dia = 49;   tredad_pitch=0.75; thread_fix = 0.7;  // 49 - Foto M49
 
  
@@ -129,4 +129,67 @@ difference() {
      translate ([0,0,-17])  metric_thread (diameter=42 + 0.2,  pitch=0.75, length=27, internal=true );  //thread
 }
     
-}    
+} else if (Model == 4) {
+    
+    difference()
+    {
+      translate ([0,-1.5,-4]) cube([66,61,26.5],center=true);
+ 
+     {
+       translate ([0, 0,-11/2+1.4]) cube([53.2,58.5,11.5],center=true); // Big Hole
+       cube([56.8,58.5,3.2],center=true);      //Small Hole  
+       translate([29.5,29.1,-6.5])rotate([90,0,0]) cylinder (h = 1.5, r=2.7,  $fn=100 );  //Hole for Magnet
+       translate([-29.5,29.1,-6.5])rotate([90,0,0]) cylinder (h = 1.5, r=2.7,  $fn=100 ); //Hole for Magnet
+     translate ([0,0,-19])  metric_thread (diameter=42 + 0.2,  pitch=1, length=10, internal=true );  //thread
+     translate ([0,0, 0])  metric_thread (diameter=42 + 0.2,  pitch=0.75, length=10, internal=true );  //thread
+
+         }    
+  } 
+     
+    
+
+} else if (Model == 5) {
+  difference() {
+    union(){
+   metric_thread (diameter=42.2,  pitch=0.75, length=5, internal=false );  
+   translate ([0,0,4])cylinder (h =45.5-12.5-27 , r=28,  $fn=12 );
+   translate ([0,0,4+45.5-12.5-28])metric_thread (diameter=42,  pitch=0.75, length=5, internal=false );  
+    }
+   cylinder (h =15 , r=18.5,  $fn=360 );    
+}
+
+} else if (Model == 6) {
+    
+    difference()
+    {
+      translate ([0,-1.5,-4]) cube([66,61,21.5],center=true);
+ 
+     {
+       translate ([0, 0,-11/2+1.4]) cube([53.2,58.5,11.5],center=true); // Big Hole
+       cube([56.8,58.5,3.2],center=true);      //Small Hole  
+       translate([29.5,29.1,-6.5])rotate([90,0,0]) cylinder (h = 1.5, r=2.7,  $fn=100 );  //Hole for Magnet
+       translate([-29.5,29.1,-6.5])rotate([90,0,0]) cylinder (h = 1.5, r=2.7,  $fn=100 ); //Hole for Magnet
+     translate ([0,0,-19])  metric_thread (diameter=42 + 0.2,  pitch=1, length=10, internal=true );  //thread
+     translate ([0,0, 0])  metric_thread (diameter=42 + 0.2,  pitch=0.75, length=10, internal=true );  //thread
+
+         }    
+  } 
+     
+    
+
+}
+ else if (Model == 7) {
+    difference() {
+    union(){
+   cylinder (h =21.5 , r=28,  $fn=12 );
+   translate ([0,0,21.5-1])metric_thread (diameter=42,  pitch=0.75, length=5, internal=false );  
+    }
+    union(){
+    metric_thread (diameter=42.35,  pitch=1, length=10, internal=true );  
+    translate ([0,0,10]) cylinder (h =30 , r=18.5,  $fn=360 );    
+    translate([0,-27.5,9])rotate([90,0,15]) linear_extrude(height = 0.5 ) text( " 21.5" , size=3.5); // Label  
+}
+        
+    }   
+  
+}
