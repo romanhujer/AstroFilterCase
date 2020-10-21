@@ -28,7 +28,7 @@ use <threads.scad>
 // 4 M42 x 0.75  Cap
 
 
-Model = 8;
+Model = 9;
 
 if (Model == 1) {
     
@@ -54,7 +54,7 @@ else if (Model == 2) {
 }
 else if (Model == 3) {
  difference() {
-        cylinder (h = 10, r=28,  $fn=100 );
+        cylinder (h = 10, r=28,  $fn=16 );
         translate ([0,0,2])  metric_thread (diameter=48.8, pitch=0.75, length=10, internal=true);
          
     } 
@@ -130,4 +130,23 @@ else if (Model == 8) {
    }
 }
     
-}    
+} else if (Model == 9) {
+     
+    tredad_dia = 50.7; tredad_pitch=0.75;  
+    difference() {
+    union(){
+    metric_thread (diameter=tredad_dia, pitch=tredad_pitch, length=5, internal=false );
+    translate ([0,0,5]) cylinder (h = 45, r=26.5,  $fn=18 );
+    translate ([0,0,-1]) cylinder (h = 2, r=49/2,  $fn=360 );    
+    
+    }
+    union(){
+    translate ([0,0,-1]) cylinder (h = 26, r=18,  $fn=360 );
+    translate ([0,0,-1]) cylinder (h = 51, r=32.2/2,  $fn=360);
+    translate ([0,0,44]) rotate ([90,0,0]) cylinder (h = 30, r=1.75,  $fn=120 );       
+    translate ([0,0,44]) rotate ([0,0,120])rotate ([90,0,0]) cylinder (h = 30, r=1.75,  $fn=120 );       
+    translate ([0,0,44]) rotate ([0,0,-120])rotate ([90,0,0]) cylinder (h = 30, r=1.75,  $fn=120 );       
+} 
+   }
+}
+     

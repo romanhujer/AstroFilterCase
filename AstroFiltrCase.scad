@@ -22,9 +22,34 @@
 
 use <threads.scad>
 
+module M4_imbus_B(){
+ rv2=7.3;
+ hm = 3.4;
+ union(){  
+
+ translate([0,0,-0.5 ]) cylinder(h=4.7, r=7.3/2, center=false, $fn=360);
+ cylinder(h=26, r=4.2/2, center=false, $fn=360);
+ }
+}
+
+
+module M3_imbus_B(){
+ rv2=7.3;
+ hm = 3.4;
+ union(){  
+
+ translate([0,0,-0.5 ]) cylinder(h=4, r=6/2, center=false, $fn=360);
+ cylinder(h=26, r=3.2/2, center=false, $fn=360);
+  }
+}
+
+
+
+
+
 //Select  model
-Model = 7;   //  1 = box, 2 = Filtr holder; 3= Filtr changer;
-BoxCount = 6;  // Box count
+Model = 9;   //  1 = box, 2 = Filtr holder; 3= Filtr changer;
+BoxCount = 3;  // Box count
 
 
 
@@ -55,11 +80,15 @@ BoxCount = 6;  // Box count
 //label="CLS 1.25";
 //label="UHC 1.25";
 //label="Skyglow           1.25";
-label=" ";
+//label="H-Alpha           1.25";
+//label="SII               1.25";
+label="OIII              1.25";
+
+//label=" ";
 
 
 //tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.4;  // For 2"      M48   x 0.75    
-tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.7;  // For 1.25"   M28.5 x 0.6
+tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.4;  // For 1.25"   M28.5 x 0.6
 //tredad_dia = 49;   tredad_pitch=0.75; thread_fix = 0.7;  // 49 - Foto M49
 
  
@@ -106,7 +135,7 @@ difference() {
  {
    translate([29.5,30.4,-6.5])rotate([90,0,0]) cylinder (h = 1.5, r=2.7,  $fn=100 );  //Hole for Magnet
    translate([-29.5,30.4,-6.5])rotate([90,0,0]) cylinder (h = 1.5, r=2.7,  $fn=100 ); //Hole for Magnet
-   translate([-27,31.5,-4])rotate([-90,0,0]) linear_extrude(height = 0.5 ) text( label, size=3.5); // Label
+   translate([-27,31.5,-4])rotate([-90,0,0]) linear_extrude(height = 0.5 )text( label, size=3.5); // Label
           
  } 
 }
@@ -162,14 +191,14 @@ difference() {
     
     difference()
     {
-      translate ([0,-1.5,-4]) cube([66,61,21.5],center=true);
+      translate ([0,-1.5,-4]) cube([66,61,19],center=true);
  
      {
        translate ([0, 0,-11/2+1.4]) cube([53.2,58.5,11.5],center=true); // Big Hole
        cube([56.8,58.5,3.2],center=true);      //Small Hole  
        translate([29.5,29.1,-6.5])rotate([90,0,0]) cylinder (h = 1.5, r=2.7,  $fn=100 );  //Hole for Magnet
        translate([-29.5,29.1,-6.5])rotate([90,0,0]) cylinder (h = 1.5, r=2.7,  $fn=100 ); //Hole for Magnet
-     translate ([0,0,-19])  metric_thread (diameter=42 + 0.2,  pitch=1, length=10, internal=true );  //thread
+     translate ([0,0,-19])  metric_thread (diameter=42 + 0.2,  pitch=0.75, length=10, internal=true );  //thread
      translate ([0,0, 0])  metric_thread (diameter=42 + 0.2,  pitch=0.75, length=10, internal=true );  //thread
 
          }    
@@ -192,4 +221,32 @@ difference() {
         
     }   
   
+} else if (Model == 8) {
+  union(){
+
+  metric_thread (diameter=48.3,  pitch=0.75, length=8, internal=false );
+  cylinder (h=8.5 , r=23.3,  $fn=360 );          
+  cylinder (h=4 , r=28,  $fn=12 );      
+      
+  }
+} 
+else if (Model == 9) {
+    
+    difference() {
+     
+        translate ([0,0,9.5/2])  cube([44+16,44+16,9.5],center=true); 
+        
+     union(){
+    metric_thread (diameter=42.5,  pitch=1, length=10, internal=true );  
+     translate ([22,22,0])  M3_imbus_B();
+    translate ([-22,22,0]) M3_imbus_B();        
+    translate ([-22,-22,0])  M3_imbus_B();        
+    translate ([22,-22,0]) M3_imbus_B();        
+   
+  
+  }
 }
+}
+
+
+
