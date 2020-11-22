@@ -48,8 +48,8 @@ module M3_imbus_B(){
 
 
 //Select  model
-Model = 9;   //  1 = box, 2 = Filtr holder; 3= Filtr changer;
-BoxCount = 3;  // Box count
+Model = 2;   //  1 = box, 2 = Filtr holder; 3= Filtr changer;
+BoxCount = 1;  // Box count
 
 
 
@@ -82,13 +82,17 @@ BoxCount = 3;  // Box count
 //label="Skyglow           1.25";
 //label="H-Alpha           1.25";
 //label="SII               1.25";
-label="OIII              1.25";
+//label="OIII              1.25";
+//label="Red23A              1.25";
+//label="Blue80A             1.25";
+//label="Grean56             1.25";
+label="Yellow12            1.25";
 
 //label=" ";
 
 
 //tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.4;  // For 2"      M48   x 0.75    
-tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.4;  // For 1.25"   M28.5 x 0.6
+tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.5;  // For 1.25"   M28.5 x 0.6
 //tredad_dia = 49;   tredad_pitch=0.75; thread_fix = 0.7;  // 49 - Foto M49
 
  
