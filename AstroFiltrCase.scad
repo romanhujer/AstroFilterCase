@@ -49,7 +49,7 @@ module M3_imbus_B(){
 
 //Select  model
 Model = 2;   //  1 = box, 2 = Filtr holder; 3= Filtr changer;
-BoxCount = 1;  // Box count
+BoxCount = 6;  // Box count
 
 
 
@@ -100,12 +100,12 @@ tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.5;  // For 1.25"   M28.5 x 
 
 if (Model == 1) {
 
-for (i=[0:1:BoxCount-1]) translate ([0,0,i*15-i])
+for (i=[0:1:BoxCount-1]) translate ([0,0,i*17-i])
 
    
     difference()
     {
-      translate ([0,-2.5,-4]) cube([66,63,15],center=true);
+      translate ([0,-2.5,-4]) cube([66,63,17],center=true);
  
      {
        translate ([0, 0,-11/2+1.4]) cube([53.2,58.5,11.5],center=true); // Big Hole
@@ -131,9 +131,9 @@ difference() {
      translate ([0,0,-2]) cylinder (h = 4, r=73/2,  $fn=100 );
    }
  } 
-     translate ([0,56/2-0.5,-11.5/2+1.4]) cube([53,3,11.5],center=true);  // Cap
+     translate ([0,56/2-0.5,-11.5/2+1.4]) cube([48,3,11.5],center=true);  // Cap
      translate ([0,56/2+2.5,-13/2+1.4]) cube([66,3,13],center=true);  //Cap out face
-     translate ([0,56/2+5,-13/2+1.4]) cube([5,10,5],center=true);     // Hand holder
+     translate ([0,56/2+5,-3.6]) cube([5,10,10],center=true);     // Hand holder
 }
           
  {
