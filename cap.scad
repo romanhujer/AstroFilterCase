@@ -28,7 +28,7 @@ use <threads.scad>
 // 4 M42 x 0.75  Cap
 
 
-Model = 9;
+Model = 4;
 
 if (Model == 1) {
     
@@ -62,7 +62,7 @@ else if (Model == 3) {
 }    
 else if (Model == 4) {
  difference() {
-        cylinder (h = 10, r=23,  $fn=100 );
+        cylinder (h = 10, r=23,  $fn=16 );
         translate ([0,0,2])  metric_thread (diameter=42.8, pitch=0.75, length=10, internal=true );
          
     } 

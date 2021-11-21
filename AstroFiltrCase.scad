@@ -49,12 +49,13 @@ module M3_imbus_B(){
 
 //Select  model
 Model = 2;   //  1 = box, 2 = Filtr holder; 3= Filtr changer;
-BoxCount = 6;  // Box count
+BoxCount = 8;  // Box count
 
 
 
 // Options for filtr holder 
 
+//label="UV Cut";
 //label="H-Alpha";
 //label="H-Beta";
 //label="SII";
@@ -86,14 +87,14 @@ BoxCount = 6;  // Box count
 //label="Red23A              1.25";
 //label="Blue80A             1.25";
 //label="Grean56             1.25";
-label="Yellow12            1.25";
+//label="Yellow12            1.25";
 
 //label=" ";
 
 
 //tredad_dia = 48;     tredad_pitch=0.75; thread_fix = 0.4;  // For 2"      M48   x 0.75    
-tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.5;  // For 1.25"   M28.5 x 0.6
-//tredad_dia = 49;   tredad_pitch=0.75; thread_fix = 0.7;  // 49 - Foto M49
+//tredad_dia = 28.5; tredad_pitch=0.6;  thread_fix = 0.5;  // For 1.25"   M28.5 x 0.6
+tredad_dia = 49;   tredad_pitch=0.75; thread_fix = 0.7;  // 49 - Foto M49
 
  
 
@@ -234,7 +235,18 @@ difference() {
       
   }
 } 
+
+
 else if (Model == 9) {
+  union(){
+
+  metric_thread (diameter=42.1,  pitch=0.75, length=8, internal=false );
+  cylinder (h=8.5 , r=20.3,  $fn=360 );          
+  cylinder (h=4 , r=23,  $fn=12 );      
+      
+  }
+} 
+else if (Model == 10) {
     
     difference() {
      
